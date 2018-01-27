@@ -7,7 +7,7 @@ import java.util.UUID;
  * @author Omer Ozkan
  */
 public class Movie {
-    private UUID id;
+    private String id;
     private String imdbId;
     private String title;
     private int year;
@@ -15,11 +15,11 @@ public class Movie {
     private List<String> genres;
     private float imdbRating;
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public Movie setId(UUID id) {
+    public Movie setId(String id) {
         this.id = id;
         return this;
     }
