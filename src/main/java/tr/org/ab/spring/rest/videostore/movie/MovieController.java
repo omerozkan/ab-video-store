@@ -1,8 +1,6 @@
 package tr.org.ab.spring.rest.videostore.movie;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Omer Ozkan
@@ -13,7 +11,7 @@ public class MovieController {
 
     private MovieFixture movieFixture = new MovieFixture();
 
-    @RequestMapping("/{id}")
+    @GetMapping("/{id}")
     Movie getMovie(@PathVariable("id") String id) {
         return movieFixture.getMovie(id);
     }
