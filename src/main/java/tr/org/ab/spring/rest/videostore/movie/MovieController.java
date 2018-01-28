@@ -1,6 +1,7 @@
 package tr.org.ab.spring.rest.videostore.movie;
 
 import org.springframework.web.bind.annotation.*;
+import tr.org.ab.spring.rest.videostore.core.SimpleResponse;
 
 import java.util.Collection;
 
@@ -18,9 +19,25 @@ public class MovieController {
         return movieFixture.getMovie(id);
     }
 
-    @GetMapping("")
+    @GetMapping
     Collection<Movie> getMovies() {
         return movieFixture.getAllMovies();
+    }
+
+    @PostMapping
+    Movie createMovie(@RequestBody Movie movie) {
+        return movieFixture.addMovie(movie);
+    }
+
+    @DeleteMapping("/{id}")
+    void deleteMovie(@PathVariable("id") String id) {
+        movieFixture.deleteMovie(id);
+    }
+
+    @PutMapping("/{id}")
+    SimpleResponse updateMovie(@RequestBody Movie updated, @PathVariable("id") String id) {
+        movieFixture.updateMovie(id, updated);
+        return new SimpleResponse("updated");
     }
 
 }

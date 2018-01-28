@@ -1,12 +1,14 @@
 package tr.org.ab.spring.rest.videostore.movie;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -34,12 +36,15 @@ public class MovieFixture {
         return movies.get(uuid);
     }
 
-    public void addMovie(Movie movie) {
+    public Movie addMovie(Movie movie) {
         movie.setId(UUID.randomUUID().toString());
         movies.put(movie.getId(), movie);
+        return movie;
     }
 
     public void updateMovie(String id, Movie movie) {
+        movies.remove(id);
+        movie.setId(id);
         movies.put(id, movie);
     }
 
