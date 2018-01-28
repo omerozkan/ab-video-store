@@ -1,7 +1,9 @@
 package tr.org.ab.spring.rest.videostore.movie;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import tr.org.ab.spring.rest.videostore.core.SimpleResponse;
+import tr.org.ab.spring.rest.videostore.core.error.NotFound;
 
 import java.util.Collection;
 
@@ -16,7 +18,13 @@ public class MovieController {
 
     @GetMapping("/{id}")
     Movie getMovie(@PathVariable("id") String id) {
-        return movieFixture.getMovie(id);
+        Movie movie = movieFixture.getMovie(id);
+
+        if (movie == null) {
+            throw new NotFound("Movie with id " + id + " not found");
+        }
+
+        return movie;
     }
 
     @GetMapping
@@ -25,6 +33,7 @@ public class MovieController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     Movie createMovie(@RequestBody Movie movie) {
         return movieFixture.addMovie(movie);
     }
