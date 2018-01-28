@@ -1,0 +1,198 @@
+[
+  {
+    "id": "fa1c7191-eda6-4213-8b51-48cd0c268e78",
+    "imdbId": "tt0268380",
+    "title": "Ice Age",
+    "year": 2002,
+    "countries": [
+      "USA"
+    ],
+    "genres": [
+      "Animation",
+      "Adventure",
+      "Comedy"
+    ],
+    "imdbRating": 7.6
+  },
+  {
+    "id": "d9485d41-d6f8-492c-b86a-dfc6e3cedc60",
+    "imdbId": "tt1201607",
+    "title": "Harry Potter and the Deathly Hallows: Part 2",
+    "year": 2011,
+    "countries": [
+      "USA",
+      "UK"
+    ],
+    "genres": [
+      "Adventure",
+      "Drama",
+      "Fantasy"
+    ],
+    "imdbRating": 8.1
+  },
+  {
+    "id": "804c87b9-9996-47bd-9f21-a2d42756c191",
+    "imdbId": "tt0167260",
+    "title": "The Lord of the Rings: The Return of the King",
+    "year": 2003,
+    "countries": [
+      "USA",
+      "New Zealand"
+    ],
+    "genres": [
+      "Adventure",
+      "Drama",
+      "Fantasy"
+    ],
+    "imdbRating": 8.9
+  },
+  {
+    "id": "aef08e55-3608-4a77-9df8-367e9cd032d2",
+    "imdbId": "tt1375666",
+    "title": "Inception",
+    "year": 2010,
+    "countries": [
+      "USA",
+      "UK"
+    ],
+    "genres": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "imdbRating": 8.8
+  },
+  {
+    "id": "91acbad6-010f-4946-9962-56ce48c06d58",
+    "imdbId": "tt0338013",
+    "title": "Eternal Sunshine of the Spotless Mind",
+    "year": 2004,
+    "countries": [
+      "USA"
+    ],
+    "genres": [
+      "Drama",
+      "Romance",
+      "Sci-Fi"
+    ],
+    "imdbRating": 8.3
+  },
+  {
+    "id": "85bee883-6b85-4fe6-a8c1-68f69a4bb13d",
+    "imdbId": "tt0137523",
+    "title": "Fight Club",
+    "year": 1999,
+    "countries": [
+      "USA",
+      "Germany"
+    ],
+    "genres": [
+      "Drama"
+    ],
+    "imdbRating": 8.8
+  },
+  {
+    "id": "5cc16eae-107a-4f70-b0be-673b69cd77f6",
+    "imdbId": "tt2527336",
+    "title": "Star Wars: The Last Jedi",
+    "year": 2017,
+    "countries": [
+      "USA"
+    ],
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "imdbRating": 7.5
+  },
+  {
+    "id": "8ff16fb7-31f2-4a5b-908f-f06e91aeaa4e",
+    "imdbId": "tt0371746",
+    "title": "Iron Man",
+    "year": 2008,
+    "countries": [
+      "USA"
+    ],
+    "genres": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "imdbRating": 7.9
+  },
+  {
+    "id": "05c9e5b5-2b37-4ba0-8bd6-a82744114dba",
+    "imdbId": "tt0246578",
+    "title": "Donnie Darko",
+    "year": 2001,
+    "countries": [
+      "USA"
+    ],
+    "genres": [
+      "Drama",
+      "Sci-Fi",
+      "Thriller"
+    ],
+    "imdbRating": 8.1
+  },
+  {
+    "id": "5c10079c-9edd-4de0-a2f7-86e0fac0901a",
+    "imdbId": "tt0892769",
+    "title": "How to Train Your Dragon",
+    "year": 2010,
+    "countries": [
+      "USA"
+    ],
+    "genres": [
+      "Animation",
+      "Adventure",
+      "Comedy"
+    ],
+    "imdbRating": 8.1
+  },
+  {
+    "id": "a9026f9b-2152-4a50-8366-bf37d6efa186",
+    "imdbId": "tt0133093",
+    "title": "The Matrix",
+    "year": 1999,
+    "countries": [
+      "USA"
+    ],
+    "genres": [
+      "Action",
+      "Sci-Fi"
+    ],
+    "imdbRating": 8.7
+  },
+  {
+    "id": "1e456a1c-880e-421c-a033-656e5d97b2c1",
+    "imdbId": "tt2958484",
+    "title": "The Smurfs: The Legend of Smurfy Hollow",
+    "year": 2013,
+    "countries": [
+      "USA"
+    ],
+    "genres": [
+      "Animation",
+      "Short",
+      "Comedy"
+    ],
+    "imdbRating": 6.3
+  },
+  {
+    "id": "c9b2b96c-d8bd-496f-958a-ec6951d75d50",
+    "imdbId": "tt3606752",
+    "title": "Cars 3",
+    "year": 2017,
+    "countries": [
+      "USA"
+    ],
+    "genres": [
+      "Animation",
+      "Adventure",
+      "Comedy"
+    ],
+    "imdbRating": 6.9
+  }
+]

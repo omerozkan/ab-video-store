@@ -1,9 +1,12 @@
 package tr.org.ab.spring.rest.videostore.movie;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Map;
-import java.util.UUID;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.CollectionType;
+import org.springframework.core.io.ClassPathResource;
+
+import java.io.IOException;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -14,27 +17,17 @@ public class MovieFixture {
     private Map<String, Movie> movies = new ConcurrentHashMap<>();
 
     public MovieFixture() {
-        Movie movie1 = new Movie()
-                .setId(UUID.randomUUID().toString())
-                .setCountries(Collections.singletonList("USA"))
-                .setImdbId("tt0338013")
-                .setTitle("Eternal Sunshine of the Spotless Mind")
-                .setYear(2004)
-                .setGenres(Arrays.asList("Drama", "Romance", "Sci-Fi"))
-                .setImdbRating(8.3f);
-
-        movies.put(movie1.getId(), movie1);
-
-        Movie movie2 = new Movie()
-                .setId(UUID.randomUUID().toString())
-                .setCountries(Arrays.asList("USA", "UK"))
-                .setImdbId("tt1375666")
-                .setTitle("Inception")
-                .setYear(2010)
-                .setGenres(Arrays.asList("Action", "Adventure", "Sci-Fi"))
-                .setImdbRating(8.8f);
-
-        movies.put(movie2.getId(), movie2);
+        ObjectMapper mapper = new ObjectMapper();
+        List<Movie> list = null;
+        try {
+            CollectionType reference = mapper.getTypeFactory().constructCollectionType(List.class, Movie.class);
+            list = mapper.readValue(new ClassPathResource("movies.json").getFile(), reference);
+        } catch (IOException e) {
+           throw new RuntimeException(e);
+        }
+        for (Movie movie : list) {
+            movies.put(movie.getId(), movie);
+        }
     }
 
     public Movie getMovie(String uuid) {
@@ -52,5 +45,9 @@ public class MovieFixture {
 
     public void deleteMovie(String id) {
         movies.remove(id);
+    }
+
+    public Collection<Movie> getAllMovies() {
+        return movies.values();
     }
 }
