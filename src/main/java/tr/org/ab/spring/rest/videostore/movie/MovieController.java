@@ -1,5 +1,6 @@
 package tr.org.ab.spring.rest.videostore.movie;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import tr.org.ab.spring.rest.videostore.core.SimpleResponse;
@@ -14,11 +15,12 @@ import java.util.Collection;
 @RequestMapping("/movies")
 public class MovieController {
 
-    private MovieFixture movieFixture = new MovieFixture();
+    @Autowired
+    private MovieService movieService;
 
     @GetMapping("/{id}")
     Movie getMovie(@PathVariable("id") String id) {
-        Movie movie = movieFixture.getMovie(id);
+        Movie movie = movieService.getMovie(id);
 
         if (movie == null) {
             throw new NotFound("Movie with id " + id + " not found");
@@ -29,23 +31,23 @@ public class MovieController {
 
     @GetMapping
     Collection<Movie> getMovies() {
-        return movieFixture.getAllMovies();
+        return movieService.getAllMovies();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     Movie createMovie(@RequestBody Movie movie) {
-        return movieFixture.addMovie(movie);
+        return movieService.addMovie(movie);
     }
 
     @DeleteMapping("/{id}")
     void deleteMovie(@PathVariable("id") String id) {
-        movieFixture.deleteMovie(id);
+        movieService.deleteMovie(id);
     }
 
     @PutMapping("/{id}")
     SimpleResponse updateMovie(@RequestBody Movie updated, @PathVariable("id") String id) {
-        movieFixture.updateMovie(id, updated);
+        movieService.updateMovie(id, updated);
         return new SimpleResponse("updated");
     }
 
