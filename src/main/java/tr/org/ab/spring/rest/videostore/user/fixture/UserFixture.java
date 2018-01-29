@@ -17,10 +17,9 @@ class UserFixture {
     @Autowired
     private UserService userService;
 
-
     @PostConstruct
     public void addTestUsers() {
-        User user = new User()
+        User user = new User("memojja", "123456789", "Mehmet", "Kadikoy/Istanbul", "5346233636", "User")
                 .setEmail("test@video.store")
                 .setAddress("No address")
                 .setName("Test User")
@@ -29,7 +28,7 @@ class UserFixture {
                 .setRole(Role.USER)
                 .setPhoneNumber("+123456");
 
-        User admin = new User()
+        User admin = new User("memojja", "123456789", "Mehmet", "Kadikoy/Istanbul", "5346233636", "User")
                 .setEmail("admin@video.store")
                 .setAddress("No address")
                 .setName("Admin User")
@@ -38,6 +37,16 @@ class UserFixture {
                 .setRole(Role.ADMIN)
                 .setPhoneNumber("+1234567");
 
+        User admin2 = new User("mddemojja", "123456789", "Mehmet", "Kadikoy/Istanbul", "5346233636", "User")
+                .setEmail("admin@video.store")
+                .setAddress("No address")
+                .setName("Admin User")
+                .setPassword("password")
+                .setUsername("admin")
+                .setRole(Role.ADMIN)
+                .setPhoneNumber("+1234567");
+
+        userService.add(admin2);
         userService.add(user);
         userService.add(admin);
 

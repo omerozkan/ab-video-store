@@ -1,16 +1,18 @@
 package tr.org.ab.spring.rest.videostore.user;
 
+import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.util.UUID;
 
 /**
  * @author Omer Ozkan
  */
+@Entity
 public class User {
+    @Id
     private String id;
     @NotEmpty
-    @Min(3)
     private String username;
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$\n")
     private String password;
     @NotEmpty
     private String name;
@@ -18,7 +20,16 @@ public class User {
     private String email;
     private String address;
     private String phoneNumber;
+    @Enumerated(EnumType.STRING)
     private Role role;
+
+    public User(String memojja, String s, String mehmet, String s1, String s2, String user){
+        this.id = UUID.randomUUID().toString();
+    }
+
+    public User() {
+        this.id = UUID.randomUUID().toString();
+    }
 
     public String getId() {
         return id;
