@@ -1,13 +1,20 @@
 package tr.org.ab.spring.rest.videostore.user;
 
+import javax.validation.constraints.*;
+
 /**
  * @author Omer Ozkan
  */
 public class User {
     private String id;
+    @NotEmpty
+    @Min(3)
     private String username;
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$\n")
     private String password;
+    @NotEmpty
     private String name;
+    @Email(message = "invalid email address")
     private String email;
     private String address;
     private String phoneNumber;

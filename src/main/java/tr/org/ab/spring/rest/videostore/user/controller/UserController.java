@@ -8,6 +8,7 @@ import tr.org.ab.spring.rest.videostore.core.error.NotFound;
 import tr.org.ab.spring.rest.videostore.user.User;
 import tr.org.ab.spring.rest.videostore.user.service.UserService;
 
+import javax.validation.Valid;
 import java.util.Collection;
 import java.util.UUID;
 
@@ -24,12 +25,12 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    User createUser(@RequestBody User user) {
+    User createUser(@Valid @RequestBody User user) {
         checkUsernameIsUnique(user);
         return userService.add(user);
     }
 
-    private void checkUsernameIsUnique(@RequestBody User user) {
+    private void checkUsernameIsUnique(@Valid @RequestBody User user) {
         User existing = userService.getByUsername(user.getUsername());
         if (existing != null) {
             throw new ConflictEntity(User.class, "username", user.getUsername());
@@ -56,7 +57,7 @@ public class UserController {
     }
 
     @PutMapping("{userKey}")
-    void updateUser(@PathVariable("userKey") String userKey, @RequestBody User user) {
+    void updateUser(@PathVariable("userKey") String userKey,@Valid @RequestBody User user) {
         User existing = retrieveUser(userKey);
         checkUsernameIsUnique(user);
         userService.update(existing.getId(), user);
