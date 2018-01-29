@@ -1,4 +1,6 @@
-package tr.org.ab.spring.rest.videostore.movie;
+package tr.org.ab.spring.rest.videostore.movie.service;
+
+import tr.org.ab.spring.rest.videostore.movie.Movie;
 
 import java.util.Collection;
 

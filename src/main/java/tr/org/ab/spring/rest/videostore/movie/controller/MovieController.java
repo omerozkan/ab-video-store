@@ -1,10 +1,12 @@
-package tr.org.ab.spring.rest.videostore.movie;
+package tr.org.ab.spring.rest.videostore.movie.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import tr.org.ab.spring.rest.videostore.core.SimpleResponse;
 import tr.org.ab.spring.rest.videostore.core.error.NotFound;
+import tr.org.ab.spring.rest.videostore.movie.Movie;
+import tr.org.ab.spring.rest.videostore.movie.service.MovieService;
 
 import java.util.Collection;
 
