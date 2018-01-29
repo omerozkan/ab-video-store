@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import tr.org.ab.spring.rest.videostore.core.error.ConflictEntity;
 import tr.org.ab.spring.rest.videostore.core.error.NotFound;
 
 import java.util.Collections;
@@ -22,6 +23,12 @@ public class ExceptionHandlerAdvice {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public Object handleNotFound(NotFound notFound) {
         return Collections.singletonMap("message", notFound.getMessage());
+    }
+
+    @ExceptionHandler(ConflictEntity.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public Object handleEntityConflict(ConflictEntity entityConflict) {
+        return Collections.singletonMap("message", entityConflict.getMessage());
     }
 
 
