@@ -1,7 +1,11 @@
 package tr.org.ab.spring.rest.videostore.user;
 
-import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.util.UUID;
 
 /**
@@ -22,10 +26,6 @@ public class User {
     private String phoneNumber;
     @Enumerated(EnumType.STRING)
     private Role role;
-
-    public User(String memojja, String s, String mehmet, String s1, String s2, String user){
-        this.id = UUID.randomUUID().toString();
-    }
 
     public User() {
         this.id = UUID.randomUUID().toString();

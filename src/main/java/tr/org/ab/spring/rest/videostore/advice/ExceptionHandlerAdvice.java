@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import tr.org.ab.spring.rest.videostore.core.error.ConflictEntity;
 import tr.org.ab.spring.rest.videostore.core.error.NotFound;
+import tr.org.ab.spring.rest.videostore.core.error.UnauthenticatedClient;
+import tr.org.ab.spring.rest.videostore.core.error.UnauthorizedUser;
 
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -36,6 +36,19 @@ public class ExceptionHandlerAdvice {
     @ResponseStatus(HttpStatus.CONFLICT)
     public Object handleEntityConflict(ConflictEntity entityConflict) {
         return Collections.singletonMap("message", entityConflict.getMessage());
+    }
+
+
+    @ExceptionHandler(UnauthenticatedClient.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public Object handleUnauthenticated() {
+        return Collections.singletonMap("message", "Invalid username or password");
+    }
+
+    @ExceptionHandler(UnauthorizedUser.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public Object handleUnauthorized() {
+        return Collections.singletonMap("message", "You are not authorized to perform the action");
     }
 
 
